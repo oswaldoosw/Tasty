@@ -5,19 +5,49 @@ import { useParams } from "react-router-dom";
 function FoodRecipe() {
     
     const [foodDetails, updateDetails] = React.useState({});
+    const [pressedd, updatePressed] = React.useState('instructions');
+    
     let parameter = useParams();
 
-    const getFoodDetails = async () => {
-        const api = await fetch (`https://api.spoonacular.com/recipes/${parameter.paramname}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
-        const data = await api.json();
-        updateDetails(data)
-    };
+    
 
     useEffect(() => {
-        getFoodDetails();
-    },[parameter.name]);
+        
+        
 
-    return (<div>{foodDetails.title}</div>);
+        const getFoodDetails = async () => {
+            const api = await fetch (`https://api.spoonacular.com/recipes/${parameter.paramname}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
+            const data = await api.json();
+            updateDetails(data)
+        };
+        getFoodDetails();
+    },[parameter.paramname]);
+
+    return (<Wrapper>
+                <div>
+                <h2>{foodDetails.title}</h2>
+                <img src={foodDetails.image} alt=""/>
+                </div>
+                <Info>
+                    <Buttonn className={pressedd === 'instructions' ? "active" : ''} onClick={() => updatePressed('instructions')}>Instructions</Buttonn>
+                    <Buttonn className={pressedd === 'ingredients' ? "active" : ''} onClick={() => updatePressed('ingredients')}>Ingredients</Buttonn>
+                    {pressedd === 'instructions' && (
+                        <div>
+                            <h3 dangerouslySetInnerHTML={{ __html: foodDetails.summary}}></h3>
+                            <h3 dangerouslySetInnerHTML={{ __html: foodDetails.instructions}}></h3>
+                        </div>)
+                    }
+                    
+                    {pressedd === 'ingredients' && (
+                        <ul>
+                            {foodDetails.extendedIngredients.map((ig) => (
+                            <li key={ig.id}>{ig.original}</li>))}
+                        </ul>)
+                    }
+                    
+                </Info>
+            </Wrapper>
+            );
 }
 
 const Wrapper = styled.div`
@@ -39,6 +69,19 @@ const Wrapper = styled.div`
     ul {
         margin-top: 2rem;
     }
-`
+`;
+
+const Buttonn = styled.button`
+    padding: 1rem 2rem;
+    color: #484848;
+    background: white;
+    border: 2px solid black;
+    margin-right: 2rem;
+    font-weight: 600;
+`;
+const Info = styled.div`
+    margin-left: 10rem;
+`;
+
 
 export default FoodRecipe;

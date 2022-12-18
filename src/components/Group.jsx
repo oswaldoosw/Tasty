@@ -1,7 +1,10 @@
 import React from "react";
-import { GiTacos, GiNoodles, GiSteak,  GiSushis } from 'react-icons/gi';
 import styled from 'styled-components';
 import { NavLink } from "react-router-dom"; 
+import borgar from "../assets/borgar.jpeg";
+import tacos from "../assets/tacos.jpg";
+import noodles from "../assets/noodles.jpg";
+import sushi from "../assets/sushi.jpg";
 
 function Group() {
 
@@ -9,65 +12,86 @@ function Group() {
         <List>
             <StyledLink 
                 to={'/dishes/Mexican'}>
-                <GiTacos />
-                <h4>Mexican</h4>
+                <img src={tacos} alt=""/>
+                <p>Mexican</p>
             </StyledLink>
             <StyledLink 
                 to={'/dishes/American'}>
-                <GiSteak />
-                <h4>American</h4>
+                <img src={borgar} alt=""/>
+                <p>American</p>
             </StyledLink>
             <StyledLink 
                 to={'/dishes/Chinese'}>
-                <GiNoodles />
-                <h4>Chinese</h4>
+                <img src={noodles} alt=""/>
+                <p>Chinese</p>
             </StyledLink>
             <StyledLink 
                 to={'/dishes/Japanese'}>
-                <GiSushis />
-                <h4>Japanese</h4>
+                <img src={sushi} alt=""/>
+                <p>Japanese</p>
             </StyledLink>
         </List>
     )
 }
 
 const List = styled.div`
+    padding-top: 1rem;
     display: flex;
     justify-content: center;
     margin: 0 auto;
+
+
 `;
 
 const StyledLink = styled(NavLink)`
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    margin-right: 1rem;
-    margin-left:1rem;
     text-decoration: none;
     background: linear-gradient(35deg, #353535, #606060);
-    width: 5rem;
-    height: 5rem;
+    width: 10rem;
+    height: 10rem;
     curson: pointer;
     transform: scale(0.8);
 
-    h4 {
-        color:white;
-        font-size: 0.8rem;
+    :hover{
+        img{
+            filter: sepia(10%);
+        }
     }
-    svg {
-        color:white;
-        font-size: 1.5rem;
+    
+    img {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        width: 10rem;
+        height: 10rem;
+        curson: pointer;
+        filter: brightness(70%);
     }
 
+    p {
+        position: absolute;
+        z-index: 10;
+        bottom: 0%
+        transform: translate(-50%, 0%);
+        color: white;
+        font-weight: 600;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    
     &.active {
-        background: linear-gradient(to right, #f27121, #e94057);
-        h4 {
-            color: white;
-        }
-        svg{
-            color: white;
+        img{
+            filter: sepia(10%);
         }
     }
 

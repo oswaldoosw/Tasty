@@ -1,18 +1,27 @@
 import Pages from "./pages/Pages";
-import Group from "./components/Group";
+
+import NavBar from "./components/NavBar";
 import { BrowserRouter } from "react-router-dom";
-import SearchBar from "./components/SearchBar"
+
+import styled from "styled-components";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <SearchBar />
-        <Group />
-        <Pages />
+        <NavBar />
+        <Content>
+          <Pages />
+        </Content>
       </BrowserRouter>
     </div>
   );
 }
+
+
+const Content = styled.div`
+  margin: 0% 20%; 
+  padding-top: 4rem;
+`;
 
 export default App;

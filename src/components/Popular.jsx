@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import styled from "styled-components"
 import {Splide, SplideSlide} from '@splidejs/react-splide';
 import "@splidejs/splide/dist/css/splide.min.css";
-import { Link } from "react-router-dom";
+import DishCard from "./DishCard.jsx"
 
 function Popular() {
     const [popular, updatePopular] = React.useState([]);
@@ -10,13 +10,13 @@ function Popular() {
     function createRecipe(recipe) {
         return (
             <SplideSlide key={recipe.id}>
-                <Card>
-                    <Link to={"/foodrecipe/" + recipe.id}>
-                        <p>{recipe.title}</p>
-                        <img src={recipe.image} alt="{recipe.title}" />
-                        <Grad />
-                    </Link>
-                </Card>
+                <DishCard 
+                        id={recipe.id}
+                        title={recipe.title} 
+                        servings={recipe.servings} 
+                        image={recipe.image} 
+                        ready={recipe.readyInMinutes} 
+                />
             </SplideSlide>
         );
     }
@@ -46,7 +46,7 @@ function Popular() {
             <Wrapper>
                 <h3>Popular</h3>
                 <Splide options={{
-                    perPage: 4,
+                    perPage: 3,
                     arrows: false,
                     pagination: false,
                     drag: "free",
@@ -61,46 +61,14 @@ function Popular() {
 
 const Wrapper = styled.div`
     margin: 4rem 0rem;
-`;
-
-const Card = styled.div`
-    height: 15rem;
-    width: 100%;
-    border-radius: 2rem;
-    overflow: hidden;
-    position: relative;
-
-    img {
-        border-radius: 2rem;
-        position: absolute;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+        
     p {
-        position: absolute;
+        position: relative;
         z-index: 10;
-        bottom: 0%
-        transform: translate(-50%, 0%);
-        color: white;
-        width: 100%;
-        text-align: center;
+        padding-bottom:8px;
         font-weight: 600;
         font-size: 1rem;
-        height: 150%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 `;
-
-const Grad = styled.div`
-    z-index: 3;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-`
 
 export default Popular;
