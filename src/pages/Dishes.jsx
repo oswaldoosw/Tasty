@@ -54,7 +54,7 @@ function Dishes() {
     },[parameter]);
 
     const getDishes = async (dishName) => {
-        const api = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${dishName}&number=3`)
+        const api = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${dishName}`)
         const data = await api.json();
         console.log(data + "he")
         let arr = []
