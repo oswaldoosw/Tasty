@@ -65,7 +65,7 @@ const Wrapper = styled.div`
     p {
         position: relative;
         z-index: 10;
-        padding-bottom:8px;
+        padding-bottom:12px;
         font-weight: 600;
         font-size: 1rem;
     }

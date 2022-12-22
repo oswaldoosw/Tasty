@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import styled from "styled-components"
 import {Splide, SplideSlide} from '@splidejs/react-splide';
 import "@splidejs/splide/dist/css/splide.min.css";
-import DishCard from "./DishCard.jsx"
+import DishCard from "./DishCard.jsx";
 
 function Popular() {
     const [popular, updatePopular] = React.useState([]);
@@ -65,7 +65,7 @@ const Wrapper = styled.div`
     p {
         position: relative;
         z-index: 10;
-        padding-bottom:8px;
+        padding-bottom:12px;
         font-weight: 600;
         font-size: 1rem;
     }
