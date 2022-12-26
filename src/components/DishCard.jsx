@@ -6,8 +6,6 @@ import { GiForkKnifeSpoon } from "react-icons/gi";
 
 function DishCard(props) {
 
-    const style = { fontSize: "1.5em"};
-
     return (
         <div>
             <Card>
@@ -19,10 +17,10 @@ function DishCard(props) {
             <p>{props.title}</p>
             <StyledLeft>
                 
-                <GiCookingPot style={style}/><p>{props.servings} servings</p>
+                <GiCookingPot style={{ fontSize: "1.5em" }}/><p>{props.servings} servings</p>
                 </StyledLeft>
                 <StyledRight>
-                    <GiForkKnifeSpoon style={style}/>
+                    <GiForkKnifeSpoon style={{ fontSize: "1.5em" }}/>
                     <p>{props.ready} minutes</p>
                 </StyledRight>
                 
@@ -66,7 +64,7 @@ const StyledRight = styled.div`
 
 
 const StyledLink = styled(Link)`
-float:left;
+    float:left;
     display: flex;
     justify-content: center;
     align-items: center;

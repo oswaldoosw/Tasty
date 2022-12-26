@@ -61,9 +61,5 @@ const Wrapper = styled.div`
     }
 `;
 
-const Pad = styled.div`
-    padding-bottom: 1rem;
-    
-`;
 
 export default Popular;
