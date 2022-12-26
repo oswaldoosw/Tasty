@@ -15,7 +15,7 @@ function DishCard(props) {
                     <img src={props.image} alt="{props.title}" />
                 </Link>
             </Card> 
-            <div  style={{width: "80%", display: "inline-block"}}>
+            <div  style={{width: "80%", display: "inline-block", paddingTop:"13px"}}>
             <p>{props.title}</p>
             <StyledLeft>
                 
@@ -27,7 +27,7 @@ function DishCard(props) {
                 </StyledRight>
                 
             </div>
-            <div style={{width: "20%", display: "inline-block", float: "right"}}><StyledLink><p>GO</p></StyledLink></div>
+            <div style={{width: "20%", display: "inline-block", float: "right", paddingTop:"10px"}}><StyledLink><p>GO</p></StyledLink></div>
             
             
         </div>
@@ -47,8 +47,9 @@ const Card = styled.div`
         left: 0;
         width: 100%;
         height: 100%;
+        min-height:300px;
+        min-width:300px;
         object-fit: cover;
-        padding-bottom:15px;
     }
 `;
 

@@ -60,12 +60,10 @@ function Vegetarian() {
 }
 
 const Wrapper = styled.div`
-    margin: 4rem 0rem;
     
     p {
         position: relative;
         z-index: 10;
-        padding-bottom:12px;
         font-weight: 600;
         font-size: 1rem;
     }

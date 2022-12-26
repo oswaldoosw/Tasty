@@ -6,7 +6,7 @@ function FoodRecipe() {
     
     const [foodDetails, updateDetails] = React.useState({});
     const [pressedd, updatePressed] = React.useState('instructions');
-    
+
     let parameter = useParams();
 
     

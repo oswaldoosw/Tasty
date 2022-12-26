@@ -9,34 +9,36 @@ import sushi from "../assets/sushi.jpg";
 function Group() {
 
     return (
-        <List>
-            <StyledLink 
+        <List className="container">
+            <div className="row">
+            <StyledLink className="col-md-4"
                 to={'/dishes/Mexican'}>
                 <img src={tacos} alt=""/>
                 <p>Mexican</p>
             </StyledLink>
-            <StyledLink 
+            <StyledLink className="col-md-4"
                 to={'/dishes/American'}>
                 <img src={borgar} alt=""/>
                 <p>American</p>
             </StyledLink>
-            <StyledLink 
+            <StyledLink className="col-md-4"
                 to={'/dishes/Chinese'}>
                 <img src={noodles} alt=""/>
                 <p>Chinese</p>
             </StyledLink>
-            <StyledLink 
+            <StyledLink className="col-md-4"
                 to={'/dishes/Japanese'}>
                 <img src={sushi} alt=""/>
                 <p>Japanese</p>
             </StyledLink>
+            </div>
         </List>
     )
 }
 
 const List = styled.div`
     padding-top: 1rem;
-    display: flex;
+    display: grid;
     justify-content: center;
     margin: 0 auto;
 

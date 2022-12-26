@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react'
-import styled from "styled-components"
-import {Splide, SplideSlide} from '@splidejs/react-splide';
-import "@splidejs/splide/dist/css/splide.min.css";
+import styled from "styled-components";
 import DishCard from "./DishCard.jsx";
 
 function Popular() {
@@ -9,15 +7,13 @@ function Popular() {
 
     function createRecipe(recipe) {
         return (
-            <SplideSlide key={recipe.id}>
-                <DishCard 
+                <DishCard key={recipe.id}
                         id={recipe.id}
                         title={recipe.title} 
                         servings={recipe.servings} 
                         image={recipe.image} 
                         ready={recipe.readyInMinutes} 
                 />
-            </SplideSlide>
         );
     }
 
@@ -43,32 +39,31 @@ function Popular() {
     }   
     return (
         <div>
+            <h3>Popular</h3>
             <Wrapper>
-                <h3>Popular</h3>
-                <Splide options={{
-                    perPage: 3,
-                    arrows: false,
-                    pagination: false,
-                    drag: "free",
-                    gap: "3rem",
-                }}>
-                    {popular.map(createRecipe)}
-                </Splide>
+                
+                            {popular.map(createRecipe)}
             </Wrapper>
         </div>
     );
 }
 
 const Wrapper = styled.div`
-    margin: 4rem 0rem;
-        
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-gap: 3rem;
+
     p {
         position: relative;
         z-index: 10;
-        padding-bottom:12px;
         font-weight: 600;
         font-size: 1rem;
     }
+`;
+
+const Pad = styled.div`
+    padding-bottom: 1rem;
+    
 `;
 
 export default Popular;

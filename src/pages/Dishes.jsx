@@ -114,12 +114,11 @@ const StyledH1 = styled.h1`
 const Grid = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    grid-gap: 5rem;
+    grid-gap: 3rem;
 
     p {
         position: relative;
         z-index: 10;
-        padding-bottom:12px;
         font-weight: 600;
         font-size: 1rem;
     }
