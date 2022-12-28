@@ -10,9 +10,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <NavBar />
-        <Content>
           <Pages />
-        </Content>
       </BrowserRouter>
     </div>
   );
@@ -21,7 +19,6 @@ function App() {
 
 const Content = styled.div`
   margin: 0% 20%; 
-  padding-top: 4rem;
 `;
 
 export default App;

@@ -28,6 +28,13 @@ code {
     monospace;
 }
 
+h1 {
+  text-align: center;
+  font-size: 30px;
+  padding-bottom: 1rem;
+  font-weight: 700;
+}
+
 h4 {
   font-size: 1rem;
   color: rgb(62, 62, 62);
@@ -36,6 +43,7 @@ h4 {
 
 h3 {
   font-size: 1.5rem;
+  font-weight: 700;
   color: rgb(62, 62, 62);
   line-height: 2.5rem;
   margin: 2rem 0rem;

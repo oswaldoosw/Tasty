@@ -24,7 +24,7 @@ function NavBar() {
 };
 
 const Nav = styled.nav`
-  background: #202020;
+  background: linear-gradient(35deg, #101010, #202020);
   height: 55px;
   display: flex;
   justify-content: space-between;

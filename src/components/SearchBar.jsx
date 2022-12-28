@@ -2,6 +2,8 @@ import { useState } from "react";
 import { GoSearch } from "react-icons/go";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import frame from "../assets/frame.png";
+
 function SearchBar() {
     const [input, updateInput] = useState("");
     const nav = useNavigate();
@@ -17,7 +19,16 @@ function SearchBar() {
 
     return (
         <div>
-            <StyledH1>Search for a recipe here!</StyledH1>
+             <div style={{ width: "100%",  height: "24rem", position: "absolute", zIndex: "-10"}}>
+             <div style={{
+                width: '100%',
+                height: '100%',
+                borderRadius: '10px',
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                backgroundImage: `url(${frame})`}}></div>
+            </div>
+            <h1 style={{paddingTop: "4rem"}}>Search for a recipe here!</h1>
             <SearchStyle onSubmit={submitForm}>
                 <GoSearch />
                 <input 
@@ -30,16 +41,10 @@ function SearchBar() {
     )
 }
 
-const StyledH1 = styled.h1`
-    text-align: center;
-    font-size: 30px;
-    padding-bottom: 1rem;
-`;
-
 const SearchStyle = styled.form`
     margin: 0rem auto;
     position: relative;
-    width: 50%;
+    width: 40%;
     
     input{
         border:none;

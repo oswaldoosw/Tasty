@@ -114,7 +114,7 @@ const StyledH1 = styled.h1`
 const Grid = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    grid-gap: 3rem;
+    grid-gap: 1rem 3rem;
 
     p {
         position: relative;

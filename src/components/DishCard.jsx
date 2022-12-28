@@ -25,7 +25,7 @@ function DishCard(props) {
                 </StyledRight>
                 
             </div>
-            <div style={{width: "20%", display: "inline-block", float: "right", paddingTop:"10px"}}><StyledLink><p>GO</p></StyledLink></div>
+            <div style={{width: "20%", display: "inline-block", float: "right", paddingTop:"10px"}}><StyledLink to={'/foodrecipe/' + props.id}><p>GO</p></StyledLink></div>
             
             
         </div>
@@ -64,7 +64,7 @@ const StyledRight = styled.div`
 
 
 const StyledLink = styled(Link)`
-    float:left;
+    float: left;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,7 +80,7 @@ const StyledLink = styled(Link)`
         color: white;
         font-weight: 600;
         font-size: 1rem;
-        top:4px;
+        top:7px;
         z-index: 10;
     }
 

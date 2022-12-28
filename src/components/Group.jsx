@@ -41,12 +41,9 @@ const List = styled.div`
     display: grid;
     justify-content: center;
     margin: 0 auto;
-
-
 `;
 
 const StyledLink = styled(NavLink)`
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -80,14 +77,14 @@ const StyledLink = styled(NavLink)`
     p {
         position: absolute;
         z-index: 10;
-        bottom: 0%
+        
         transform: translate(-50%, 0%);
         color: white;
         font-weight: 600;
         font-size: 1rem;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        top: 42%;
+        left: 50%;
     }
 
     

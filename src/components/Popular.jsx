@@ -41,8 +41,7 @@ function Popular() {
         <div>
             <h3>Popular</h3>
             <Wrapper>
-                
-                            {popular.map(createRecipe)}
+                {popular.map(createRecipe)}
             </Wrapper>
         </div>
     );
@@ -51,7 +50,7 @@ function Popular() {
 const Wrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    grid-gap: 3rem;
+    grid-gap: 1rem 3rem;
 
     p {
         position: relative;

@@ -4,8 +4,7 @@ import newFoods from "../assets/newFoods.js";
 
 function FeaturedSlider(props) {
 
-    const [currentSlide, updateCurrentSlide] = React.useState([]);
-    const [indexx, updateIndex] = React.useState(0);
+    const [currentSlide, updateCurrentSlide] = React.useState(0);
     const hola = [];
     const slideStyle = {
        
@@ -28,26 +27,24 @@ function FeaturedSlider(props) {
 
 
     return (
-        <div style={{height: "100%", position: "relative"}}>
-            {console.log(newFoods)}
-            {newFoods.map((recipe) => 
-            {return (<div style={{
+        <div style={{ width: "80%", margin: "0rem auto", height: "25rem", position: "absolute", paddingTop: "2rem"}}>
+            <div style={{
                 width: '100%',
                 height: '100%',
                 borderRadius: '10px',
                 backgroundPosition: "center",
                 backgroundSize: "cover",
-                backgroundImage: `url(${recipe.image})`}}></div>)})}
+                backgroundImage: `url(https://1.bp.blogspot.com/-wrbmTCP28g0/YKEHDx_SrHI/AAAAAAADOzQ/PrYlKKZVjJsbL6cE1CEzLJCyN2nGlaPSQCLcBGAsYHQ/s4508/Cover%2Bpasta.JPG)`}}></div>
         </div>
     );
   };
 
-const StyledDiv = styled.div`
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    background-position: center;
-    background-color: cover;
-`;
+// const StyledDiv = styled.div`
+//     width: 100%;
+//     height: 100%;
+//     border-radius: 10px;
+//     background-position: center;
+//     background-color: cover;
+// `;
 
   export default FeaturedSlider;
