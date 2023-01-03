@@ -25,16 +25,20 @@ function FoodRecipe() {
 
     return (<Wrapper>
                 <div>
-                <h2>{foodDetails.title}</h2>
-                <img src={foodDetails.image} alt=""/>
+                    <h2>{foodDetails.title}</h2>
+                    <img src={foodDetails.image} alt=""/>
                 </div>
                 <Info>
-                    <Buttonn className={pressedd === 'instructions' ? "active" : ''} onClick={() => updatePressed('instructions')}>Instructions</Buttonn>
-                    <Buttonn className={pressedd === 'ingredients' ? "active" : ''} onClick={() => updatePressed('ingredients')}>Ingredients</Buttonn>
+                    <Buttonn className={pressedd === 'instructions' ? "active" : ''} onClick={() => updatePressed('instructions')}>
+                        Instructions
+                    </Buttonn>
+                    <Buttonn className={pressedd === 'ingredients' ? "active" : ''} onClick={() => updatePressed('ingredients')}>
+                        Ingredients
+                    </Buttonn>
                     {pressedd === 'instructions' && (
                         <div>
-                            <h3 dangerouslySetInnerHTML={{ __html: foodDetails.summary}}></h3>
-                            <h3 dangerouslySetInnerHTML={{ __html: foodDetails.instructions}}></h3>
+                            <p dangerouslySetInnerHTML={{ __html: foodDetails.summary}}></p>
+                            <p dangerouslySetInnerHTML={{ __html: foodDetails.instructions}}></p>
                         </div>)
                     }
                     
@@ -44,28 +48,42 @@ function FoodRecipe() {
                             <li key={ig.id}>{ig.original}</li>))}
                         </ul>)
                     }
-                    
                 </Info>
             </Wrapper>
             );
 }
 
 const Wrapper = styled.div`
-    margin-top: 10rem;
+    padding-top: 5rem;
     margin-bottom: 5rem;
     display: flex;
+    margin: 0% 20%;
+
+    h2{
+        margin-bottom: 2rem;
+    }
+
+    img {
+        border-radius: 2rem;
+        left: 0;
+        height: 300px;
+        width: 400px;
+        object-fit: cover;
+    }
 
     .active {
         background: linear-gradient(35deg, #353535, #484848);
         color: white;
     }
-    h2{
-        margin-bottom: 2rem;
+
+    p {
+        margin-top: 2rem;
     }
+    
     li{
-        font-size: 1.2rem;
         line-height: 2.5rem;
     }
+
     ul {
         margin-top: 2rem;
     }
@@ -80,7 +98,8 @@ const Buttonn = styled.button`
     font-weight: 600;
 `;
 const Info = styled.div`
-    margin-left: 10rem;
+    margin-left: 5rem;
+    width: 60%;
 `;
 
 
