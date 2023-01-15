@@ -4,27 +4,29 @@ import styled from 'styled-components';
 import tasty from '../assets/tasty.jpg';
 import { NavLink as Link } from 'react-router-dom';
 
-function NavBar() {
+function NavBar(props) {
 
   return (
     <Nav>
         <NavMenu>
-            <NavLink to="/">
+            <NavLink to="/" >
                 <img src={tasty} alt="" />
             </NavLink>
-          <NavLink to='/about' activeStyle>
-            About
+          {props.namee === "" ? 
+          <NavLink to='/auth/signin' style={{position:"absolute", paddingLeft: "85%"}}>
+            Sign In
           </NavLink>
-          <NavLink to='/events' activeStyle>
-            Events
-          </NavLink>
+          :
+          <div>hello</div>
+          }
+          
         </NavMenu>
       </Nav>
   );
 };
 
 const Nav = styled.nav`
-  background: linear-gradient(35deg, #101010, #202020);
+  background: #202020;
   height: 55px;
   display: flex;
   justify-content: space-between;
@@ -38,13 +40,12 @@ const NavLink = styled(Link)`
   align-items: center;
   text-decoration: none;
   padding: 0 1rem;
-  height: 100%;
   cursor: pointer;
   img {
     height: 40px;
   }
-  &.active {
-    color: #000000;
+  :hover{
+    color: lightgreen;
   }
 `;
 

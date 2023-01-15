@@ -69,7 +69,7 @@ function Dishes() {
         updateDishes(arr);
     }
     return (
-        <div>
+        <div style={{margin: "0% 20%" }}>
             
         {loader ? 
             <div>
@@ -99,7 +99,7 @@ function Dishes() {
 const LoadingH1 = styled.h1`
     text-align: center;
     font-size: 38px;
-    padding-top: 3rem;
+    padding-top: 7rem;
     padding-bottom: 1rem;
     color: #494949;
 `;
@@ -107,6 +107,7 @@ const LoadingH1 = styled.h1`
 const StyledH1 = styled.h1`
     text-align: center;
     font-size: 38px;
+    padding-top: 5rem;
     padding-bottom: 3rem;
     color: #303030;
 `;
