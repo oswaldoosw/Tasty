@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import styled from "styled-components";
+import React from 'react';
 import { Link } from "react-router-dom";
 
 function SignIn() {
@@ -24,7 +23,7 @@ function SignIn() {
         .then((res) => res.json())
         .then((data) => {
             console.log(data, "UserLogin");
-            if (data.status == "ok"){
+            if (data.status === "ok"){
                 alert("Login Successful");
                 localStorage.setItem("token", data.data);
                 window.location.href = "/";
