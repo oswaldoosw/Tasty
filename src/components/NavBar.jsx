@@ -35,9 +35,7 @@ function NavBar(props) {
               </ProfileIcon>
             </StyledDiv>
             }</>
-            
           }
-          
       </Nav>
       </div>
   );

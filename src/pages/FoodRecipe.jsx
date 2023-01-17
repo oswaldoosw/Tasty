@@ -1,29 +1,49 @@
 import styled from "styled-components";
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Comments from "../components/Comments.jsx";
 
 function FoodRecipe() {
     
     const [foodDetails, updateDetails] = React.useState({});
     const [pressedd, updatePressed] = React.useState('instructions');
+    const [recipeData, updateRecipeData] = React.useState({});
 
     let parameter = useParams();
 
-    
+    // function checkRecipeDetails() {
+    //     fetch("http://localhost:5000/checkrecipe", {
+    //         method:"POST",
+    //         crossDomain:"true",
+    //         headers:{
+    //             "Content-Type":"application/json",
+    //             Accept:"application/json",
+    //             "Access-Control-Allow_Origin":"*",
+    //         },
+    //         body:JSON.stringify({
+    //             recipeid: parameter.paramname,
+    //         }),
+    //     })
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //         console.log(data, "CheckRecipe");
+    //         updateRecipeData(data.data);
+    //     })
+    // }
 
     useEffect(() => {
-        
-        
-
         const getFoodDetails = async () => {
             const api = await fetch (`https://api.spoonacular.com/recipes/${parameter.paramname}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
             const data = await api.json();
             updateDetails(data)
         };
         getFoodDetails();
+
+        
     },[parameter.paramname]);
 
-    return (<Wrapper>
+    return (<div>
+            <Wrapper>
                 <div>
                     <h2>{foodDetails.title}</h2>
                     <img src={foodDetails.image} alt=""/>
@@ -49,7 +69,11 @@ function FoodRecipe() {
                         </ul>)
                     }
                 </Info>
+                
+                
             </Wrapper>
+            <Comments param={parameter.paramname} />
+            </div>
             );
 }
 
