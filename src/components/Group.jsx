@@ -87,13 +87,6 @@ const StyledLink = styled(NavLink)`
         left: 50%;
     }
 
-    
-    &.active {
-        img{
-            filter: sepia(10%);
-        }
-    }
-
 `;
 
 

@@ -1,13 +1,12 @@
 import styled from "styled-components";
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Comments from "../components/Comments.jsx";
+import CommentSection from "../components/CommentSection.jsx";
 
 function FoodRecipe() {
     
     const [foodDetails, updateDetails] = React.useState({});
     const [pressedd, updatePressed] = React.useState('instructions');
-    const [recipeData, updateRecipeData] = React.useState({});
 
     let parameter = useParams();
 
@@ -36,8 +35,10 @@ function FoodRecipe() {
             const api = await fetch (`https://api.spoonacular.com/recipes/${parameter.paramname}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
             const data = await api.json();
             updateDetails(data)
+            console.log(data)
         };
         getFoodDetails();
+       
 
         
     },[parameter.paramname]);
@@ -72,7 +73,7 @@ function FoodRecipe() {
                 
                 
             </Wrapper>
-            <Comments param={parameter.paramname} />
+            <CommentSection param={parameter.paramname} />
             </div>
             );
 }

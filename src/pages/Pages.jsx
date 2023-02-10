@@ -6,6 +6,7 @@ import FoodRecipe from "./FoodRecipe";
 import { Route, Routes } from "react-router-dom";
 import Dishes from "./Dishes";
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 function Pages() {
     const [userData, updateUserData] = React.useState({
@@ -19,7 +20,7 @@ function Pages() {
         
     },[]);
     function componentDidMount() {
-        fetch("http://localhost:5000/userData", {
+        fetch("http://localhost:5000/user", {
             method:"POST",
             crossDomain:"true",
             headers:{
@@ -49,6 +50,7 @@ function Pages() {
                 <Route path="/foodrecipe/:paramname" element={<FoodRecipe />} />
                 <Route path="/auth/:authtype" element={<Auth />} />
             </Routes>
+            <Footer />
         </div>
     );
 }
