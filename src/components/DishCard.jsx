@@ -14,23 +14,19 @@ function DishCard(props) {
                 </Link>
             </Card> 
             <div  style={{width: "80%", display: "inline-block", paddingTop:"13px"}}>
-            <p>{props.title}</p>
-            <StyledLeft>
-                
-                <GiCookingPot style={{ fontSize: "1.5em" }}/><p>{props.servings} servings</p>
+                <p>{props.title}</p>
+                <StyledLeft>
+                    <GiCookingPot style={{ fontSize: "1.5em" }}/><p>{props.servings} servings</p>
                 </StyledLeft>
                 <StyledRight>
                     <GiForkKnifeSpoon style={{ fontSize: "1.5em" }}/>
                     <p>{props.ready} minutes</p>
                 </StyledRight>
-                
             </div>
             <div style={{width: "20%", display: "inline-block", float: "right", paddingTop:"10px"}}><StyledLink to={'/foodrecipe/' + props.id}><p>GO</p></StyledLink></div>
-            
-            
         </div>
-    );
-  };
+    )
+};
 
 const Card = styled.div`
     height: 15rem;

@@ -48,7 +48,11 @@ function CommentSection(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        if (comment.length < 5)
+        if (localStorage.getItem("token") === null)
+        {
+            alert("You need to be logged in first before commenting");
+        }
+        else if (comment.length < 5)
         {
             alert("Comment must be longer than 5 characters");
         }

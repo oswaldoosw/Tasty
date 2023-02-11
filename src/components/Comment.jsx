@@ -28,7 +28,6 @@ function Comment(props) {
         .then((res) => res.json())
         .then((data) => {
             console.log(data)
-            
             props.updateContent(data.data.comments.reverse());
         })
         
@@ -70,7 +69,7 @@ function Comment(props) {
             <div className="d-flex justify-content-between align-items-center">
                 <div className="user d-flex  align-items-center">
                     <ProfileIcon><img src={person} alt="" /></ProfileIcon>
-                    <span style={{ fontSize: "16px" }}className="font-weight-bold text-primary">{props.comment.user.name} </span>
+                    <span style={{ fontSize: "16px" }} className="font-weight-bold text-primary">{props.comment.user.name} </span>
                     <div style={{ height: "16px"}}>
                         <Time>&ensp;{checkDate(props.comment.dateCreated)}</Time>
                     </div>

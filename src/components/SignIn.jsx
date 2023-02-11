@@ -1,9 +1,13 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function SignIn() {
     const [email, updateEmail] = React.useState();
     const [password, updatePassword] = React.useState();
+
+    const location = useLocation();
+    const { previousPath } = location.state;
+
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -25,8 +29,12 @@ function SignIn() {
             console.log(data, "UserLogin");
             if (data.status === "ok"){
                 alert("Login Successful");
+                console.log(previousPath);
                 localStorage.setItem("token", data.data);
-                window.location.href = "/";
+                window.location.href = previousPath;
+            }
+            else {
+                alert("Invalid Email or Password");
             }
             
         })
@@ -42,7 +50,7 @@ function SignIn() {
                 <input type="password" onChange={(e) => {updatePassword(e.target.value)}}></input>
             </div>
             <button>Sign In</button>
-            <p>Don't have an account?<Link to={'/auth/signup'}>Sign Up</Link></p>
+            <p>Don't have an account?<Link to={'/auth/signup'} state={{ previousPath: previousPath }}>Sign Up</Link></p>
             
         </form>
     );

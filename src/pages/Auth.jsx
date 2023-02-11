@@ -15,7 +15,6 @@ function Auth() {
             <SignUp />
         }
         </div>
-        
     );
 }
 

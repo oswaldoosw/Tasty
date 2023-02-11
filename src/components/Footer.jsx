@@ -4,7 +4,7 @@ import styled from "styled-components";
 function Footer() {
 
     return (
-        <div style={{paddingTop: "30px", paddingBottom: "10px",}}>
+        <Wrapper>
             <StyledParagraph style={{ fontWeight: "900", fontSize: "1.2rem", lineHeight: "1"}}>
                 Credits
             </StyledParagraph>
@@ -12,10 +12,18 @@ function Footer() {
                 Food recipes collected from the Spoonacular API
             </StyledParagraph>
             <StyledParagraph>
+                React SVG loader component by React Spinners
+            </StyledParagraph>
+            <StyledParagraph>
                 Icons taken from React Icons
             </StyledParagraph>
-        </div>);
+        </Wrapper>);
 }
+
+const Wrapper = styled.div`
+    padding-top: 30px;
+    padding-bottom: 10px;
+`;
 
 const StyledParagraph = styled.p`
     justify-content: center;

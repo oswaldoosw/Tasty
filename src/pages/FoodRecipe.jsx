@@ -2,6 +2,7 @@ import styled from "styled-components";
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import CommentSection from "../components/CommentSection.jsx";
+import Footer from "../components/Footer";
 
 function FoodRecipe() {
     
@@ -9,26 +10,6 @@ function FoodRecipe() {
     const [pressedd, updatePressed] = React.useState('instructions');
 
     let parameter = useParams();
-
-    // function checkRecipeDetails() {
-    //     fetch("http://localhost:5000/checkrecipe", {
-    //         method:"POST",
-    //         crossDomain:"true",
-    //         headers:{
-    //             "Content-Type":"application/json",
-    //             Accept:"application/json",
-    //             "Access-Control-Allow_Origin":"*",
-    //         },
-    //         body:JSON.stringify({
-    //             recipeid: parameter.paramname,
-    //         }),
-    //     })
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //         console.log(data, "CheckRecipe");
-    //         updateRecipeData(data.data);
-    //     })
-    // }
 
     useEffect(() => {
         const getFoodDetails = async () => {
@@ -38,42 +19,38 @@ function FoodRecipe() {
             console.log(data)
         };
         getFoodDetails();
-       
-
-        
     },[parameter.paramname]);
 
     return (<div>
-            <Wrapper>
-                <div>
-                    <h2>{foodDetails.title}</h2>
-                    <img src={foodDetails.image} alt=""/>
-                </div>
-                <Info>
-                    <Buttonn className={pressedd === 'instructions' ? "active" : ''} onClick={() => updatePressed('instructions')}>
-                        Instructions
-                    </Buttonn>
-                    <Buttonn className={pressedd === 'ingredients' ? "active" : ''} onClick={() => updatePressed('ingredients')}>
-                        Ingredients
-                    </Buttonn>
-                    {pressedd === 'instructions' && (
-                        <div>
-                            <p dangerouslySetInnerHTML={{ __html: foodDetails.summary}}></p>
-                            <p dangerouslySetInnerHTML={{ __html: foodDetails.instructions}}></p>
-                        </div>)
-                    }
-                    
-                    {pressedd === 'ingredients' && (
-                        <ul>
-                            {foodDetails.extendedIngredients.map((ig) => (
-                            <li key={ig.id}>{ig.original}</li>))}
-                        </ul>)
-                    }
-                </Info>
-                
-                
-            </Wrapper>
-            <CommentSection param={parameter.paramname} />
+                <Wrapper>
+                    <div>
+                        <h2>{foodDetails.title}</h2>
+                        <img src={foodDetails.image} alt=""/>
+                    </div>
+                    <Info>
+                        <Buttonn className={pressedd === 'instructions' ? "active" : ''} onClick={() => updatePressed('instructions')}>
+                            Instructions
+                        </Buttonn>
+                        <Buttonn className={pressedd === 'ingredients' ? "active" : ''} onClick={() => updatePressed('ingredients')}>
+                            Ingredients
+                        </Buttonn>
+                        {pressedd === 'instructions' && (
+                            <div>
+                                <p dangerouslySetInnerHTML={{ __html: foodDetails.summary}}></p>
+                                <p dangerouslySetInnerHTML={{ __html: foodDetails.instructions}}></p>
+                            </div>)
+                        }
+                        
+                        {pressedd === 'ingredients' && (
+                            <ul>
+                                {foodDetails.extendedIngredients.map((ig) => (
+                                <li key={ig.id}>{ig.original}</li>))}
+                            </ul>)
+                        }
+                    </Info>
+                </Wrapper>
+                <CommentSection param={parameter.paramname} />
+                <Footer />
             </div>
             );
 }

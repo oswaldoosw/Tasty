@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function SignUp() {
     const [name, updateName] = React.useState();
     const [email, updateEmail] = React.useState();
     const [password, updatePassword] = React.useState();
    
+    const location = useLocation();
+    const { previousPath } = location.state;
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -24,7 +26,13 @@ function SignUp() {
             }),
         })
         .then((res) => res.json())
-        .then((data) => {console.log(data, "UserRegister");})
+        .then((data) => {
+            console.log(data, "UserRegister");
+            if (data.status === "User exists")
+                alert("Email Already in Use");
+            else
+                alert("Successfully Registered");
+        })
     }
     return (
         <form onSubmit={handleSubmit}>
@@ -38,7 +46,7 @@ function SignUp() {
                 <input type="password" onChange={(e) => {updatePassword(e.target.value)}}></input>
             </div>
             <button>Sign Up</button>
-            <p>Already have an account?<Link to={'/auth/signin'}>Sign In</Link></p>
+            <p>Already have an account?<Link to={'/auth/signin'} state={{ previousPath: previousPath }}>Sign In</Link></p>
         </form>
     );
 }

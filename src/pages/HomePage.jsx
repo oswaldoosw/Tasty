@@ -1,6 +1,7 @@
 import Vegetarian from "../components/Vegetarian";
 import Popular from "../components/Popular";
 import SearchBar from "../components/SearchBar";
+import Footer from "../components/Footer";
 import Group from "../components/Group";
 import styled from "styled-components";
 import React from "react";
@@ -15,6 +16,7 @@ function HomePage() {
                 <Vegetarian />
                 <Popular />
             </Content>
+            <Footer />
         </div>
     );
 }

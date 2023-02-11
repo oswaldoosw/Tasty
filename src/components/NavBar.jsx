@@ -3,14 +3,15 @@ import React from 'react';
 import styled from 'styled-components';
 import tasty from '../assets/tasty.jpg';
 import person from "../assets/person.jpg";
-import { NavLink as Link } from 'react-router-dom';
+import { NavLink as Link, useLocation } from 'react-router-dom';
 
 function NavBar(props) {
   const [logout, updateLogout] = React.useState(false); 
+  const { pathname } = useLocation();
 
   function handleLogout() {
     localStorage.removeItem("token");
-    window.location.href = "/";
+    window.location.href = pathname;
   }
   return (
         <div>
@@ -19,7 +20,7 @@ function NavBar(props) {
           </NavLink>
           <Nav>
           {props.namee === "" ? 
-            <NavLink to='/auth/signin'>
+            <NavLink to='/auth/signin' state={{ previousPath: pathname }}>
               Sign In
             </NavLink>
             : <>
