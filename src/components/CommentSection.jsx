@@ -58,7 +58,7 @@ function CommentSection(props) {
         }
         else {
             fetch("http://localhost:5000/recipe/comment", {
-            method:"PUT",
+            method:"PATCH",
             crossDomain:"true",
             headers:{
                 "Content-Type":"application/json",

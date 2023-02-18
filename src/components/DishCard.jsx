@@ -1,10 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { GiCookingPot } from "react-icons/gi";
 import { GiForkKnifeSpoon } from "react-icons/gi";
+import { FaStar } from "react-icons/fa";
 
 function DishCard(props) {
+    
+    const [rating, updateRating] = React.useState(0);
+    const [ratingCount, updateRatingCount] = React.useState(0);
+    useEffect(() => {
+        const fetchRating = async () => {
+            fetch(`http://localhost:5000/recipe/?param=${props.id}`, {
+                method:"GET",
+                crossDomain:"true",
+                headers:{
+                    "Content-Type":"application/json",
+                    Accept:"application/json",
+                    "Access-Control-Allow_Origin":"*",
+                },
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                updateRating(data.data.rating.score);
+                updateRatingCount(data.data.rating.count);
+            })
+        }
+        fetchRating();
+    },[]);
+
 
     return (
         <div>
@@ -13,17 +37,34 @@ function DishCard(props) {
                     <img src={props.image} alt="{props.title}" />
                 </Link>
             </Card> 
-            <div  style={{width: "80%", display: "inline-block", paddingTop:"13px"}}>
-                <p>{props.title}</p>
-                <StyledLeft>
-                    <GiCookingPot style={{ fontSize: "1.5em" }}/><p>{props.servings} servings</p>
-                </StyledLeft>
-                <StyledRight>
-                    <GiForkKnifeSpoon style={{ fontSize: "1.5em" }}/>
-                    <p>{props.ready} minutes</p>
-                </StyledRight>
+            <div style={{width: "80%", display: "inline-block", paddingTop:"13px"}}>
+                <div style={{ fontWeight: "700", paddingBottom: "5px" }}>
+                    {props.title}
+                </div>
+                <div>
+                {[...Array(5)].map((star, index) => {
+                    const starValue = index + 1;
+                    return (
+                        <FaStar size={20} color={rating >= starValue ? "yellow" : "lightgray"} style={{ cursor: "pointer", }} />
+                    );
+                })}
+                <sub>&ensp;<b>{rating}/5</b> by {ratingCount} users</sub>
+                </div>
+                <div style= {{ paddingTop: "20px" }}>
+                    <StyledLeft>
+                        <GiCookingPot style={{ fontSize: "1.5em" }}/><p>{props.servings} servings</p>
+                    </StyledLeft>
+                    <StyledRight>
+                        <GiForkKnifeSpoon style={{ fontSize: "1.5em" }}/>
+                        <p>{props.ready} minutes</p>
+                    </StyledRight>
+                </div>
             </div>
             <div style={{width: "20%", display: "inline-block", float: "right", paddingTop:"10px"}}><StyledLink to={'/foodrecipe/' + props.id}><p>GO</p></StyledLink></div>
+            {/* {content?.map((comment)=> {return (
+                <div>{comment._id}</div>
+                )
+            })} */}
         </div>
     )
 };

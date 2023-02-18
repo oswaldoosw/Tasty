@@ -2,7 +2,9 @@ import styled from "styled-components";
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import CommentSection from "../components/CommentSection.jsx";
+import Rating from "../components/Rating";
 import Footer from "../components/Footer";
+
 
 function FoodRecipe() {
     
@@ -24,8 +26,14 @@ function FoodRecipe() {
     return (<div>
                 <Wrapper>
                     <div>
-                        <h2>{foodDetails.title}</h2>
-                        <img src={foodDetails.image} alt=""/>
+                        <div>
+                            <h2>{foodDetails.title}</h2>
+                            <img src={foodDetails.image} alt=""/>
+                        </div>
+                        <div>
+                            <h3 style={{ marginBottom:"10px", }}>Rate This Recipe</h3>
+                            <Rating param={parameter.paramname} />
+                        </div>
                     </div>
                     <Info>
                         <Buttonn className={pressedd === 'instructions' ? "active" : ''} onClick={() => updatePressed('instructions')}>
@@ -58,7 +66,8 @@ function FoodRecipe() {
 const Wrapper = styled.div`
     padding-top: 5rem;
     margin-bottom: 5rem;
-    display: flex;
+    display: grid;
+    grid-template-columns: 23rem 1fr;
     margin: 0% 20%;
 
     h2{
@@ -101,7 +110,6 @@ const Buttonn = styled.button`
 `;
 const Info = styled.div`
     margin-left: 5rem;
-    width: 60%;
 `;
 
 

@@ -26,19 +26,12 @@ function Dishes() {
 
     function createDish(dish) {
         return (
-            // <Card key={dish.id}>
-            //     <Link to={"/foodrecipe/" + dish.id}>
-            //         <img src={dish.image} alt="" />
-            //         <h4>{dish.title}</h4>
-            //     </Link>
-            // </Card>
             <DishCard 
                 id={dish.id}
                 title={dish.title} 
                 servings={dish.servings} 
                 image={dish.image} 
-                ready={dish.readyInMinutes}   
-            
+                ready={dish.readyInMinutes}
             />
         )
     }
@@ -66,17 +59,14 @@ function Dishes() {
             console.log(dat);
         } 
         console.log(arr);
-        
         updateDishes(arr);
     }
     return (
         <div style={{margin: "0% 20%" }}>
-            
         {loader ? 
             <div>
                 <LoadingH1>Finding Recipes...</LoadingH1>
                 <div style={style}>
-                    
                     <RingLoader
                         color={'#000000'}
                         loading={loader}
@@ -94,7 +84,6 @@ function Dishes() {
             </div>
         }
         </div>
-        
     );
 }
 

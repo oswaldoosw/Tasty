@@ -9,7 +9,6 @@ function Comment(props) {
     const [threeDotsClick, updateThreeDotsClick] = React.useState(false);
     
     function handleDelete(e) {
-        console.log("hi")
         e.preventDefault();
         fetch("http://localhost:5000/recipe/comment/delete", {
         method:"DELETE",
