@@ -73,7 +73,7 @@ function Searched() {
                 </div>
                 :
                 <div>
-                    <StyledH1>Showing '{parameter.search}' Related Recipes</StyledH1>
+                    <StyledH1>Showing '{parameter.paramsearch}' Related Recipes</StyledH1>
                     <Grid>
                         {searchData.map(createSearchedDishes)}
                     </Grid>
