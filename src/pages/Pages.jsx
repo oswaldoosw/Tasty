@@ -15,11 +15,11 @@ function Pages() {
 
     useEffect(() => {
         if (localStorage.getItem("token") !== null){
-            componentDidMount();
+            getUser();
         }
         
     },[]);
-    function componentDidMount() {
+    function getUser() {
         fetch("http://localhost:5000/user", {
             method:"POST",
             crossDomain:"true",

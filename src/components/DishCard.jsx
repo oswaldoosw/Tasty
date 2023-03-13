@@ -27,7 +27,7 @@ function DishCard(props) {
             })
         }
         fetchRating();
-    },[]);
+    },[props.id]);
 
 
     return (
@@ -48,7 +48,7 @@ function DishCard(props) {
                         <FaStar size={20} color={rating >= starValue ? "yellow" : "lightgray"} style={{ cursor: "pointer", }} />
                     );
                 })}
-                <sub>&ensp;<b>{rating}/5</b> by {ratingCount} users</sub>
+                <sub>&ensp;<b>{Math.round(rating * 10) / 10}/5</b> by {ratingCount} users</sub>
                 </div>
                 <div style= {{ paddingTop: "20px" }}>
                     <StyledLeft>

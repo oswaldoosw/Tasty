@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import styled from "styled-components";
 import DishCard from "./DishCard.jsx";
 
@@ -7,13 +7,13 @@ function Popular() {
 
     function createRecipe(recipe) {
         return (
-                <DishCard key={recipe.id}
-                        id={recipe.id}
-                        title={recipe.title} 
-                        servings={recipe.servings} 
-                        image={recipe.image} 
-                        ready={recipe.readyInMinutes} 
-                />
+            <DishCard key={recipe.id}
+                    id={recipe.id}
+                    title={recipe.title} 
+                    servings={recipe.servings} 
+                    image={recipe.image} 
+                    ready={recipe.readyInMinutes} 
+            />
         );
     }
 
@@ -34,8 +34,6 @@ function Popular() {
             updatePopular(data.recipes);
             console.log(data.recipes);
         }
-
-        
     }   
     return (
         <div>

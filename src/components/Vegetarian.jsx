@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styled from "styled-components";
 import {Splide, SplideSlide} from '@splidejs/react-splide';
 import "@splidejs/splide/dist/css/splide.min.css";
-import DishCard from "./DishCard.jsx"
+import DishCard from "./DishCard.jsx";
 
 
 function Vegetarian() {

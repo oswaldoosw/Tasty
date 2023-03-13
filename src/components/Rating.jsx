@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useLayoutEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { FaStar } from "react-icons/fa";
 
@@ -46,13 +46,16 @@ const Rating = ((props) => {
         checkRecipeDetails();
     }, [props.param, token])
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         console.log(showRating, "dadaad");
         if (firstUpdate.current) {
+            console.log(showRating, "firstt");
             firstUpdate.current = false;
             return;
         }
         else if (showRating) {
+            console.log(showRating, "sec");
+            console.log(actualRating, "wow");
             const submitRating = async () => {
                 fetch("http://localhost:5000/recipe/rate", {
                 method:"PATCH",
@@ -107,7 +110,7 @@ const Rating = ((props) => {
             })}
             
             <sub style={{ fontSize: "30px", }}>&ensp;{rating}{rating === null ? "" : "/5"}</sub>
-            <p style={{ fontSize: "12px", }}>This recipe is rated <b>{actualRating}/5 stars</b> by a total of {ratingCount} users</p>
+            <p style={{ fontSize: "12px", }}>This recipe is rated <b>{Math.round(actualRating * 10) / 10}/5 stars</b> by a total of {ratingCount} users</p>
         </div>
     )
 })

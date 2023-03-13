@@ -38,7 +38,6 @@ function Dishes() {
 
     useEffect(() => {
         updateLoader(true);
-        getDishes(parameter.paramtype);
         async function someFunc() {
             await getDishes(parameter.paramtype);
             updateLoader(false);
