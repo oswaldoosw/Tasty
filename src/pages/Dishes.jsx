@@ -62,26 +62,26 @@ function Dishes() {
     }
     return (
         <div style={{margin: "0% 20%" }}>
-        {loader ? 
-            <div>
-                <LoadingH1>Finding Recipes...</LoadingH1>
-                <div style={style}>
-                    <RingLoader
-                        color={'#000000'}
-                        loading={loader}
-                        size={120}
-                    />
+            {loader ? 
+                <div>
+                    <LoadingH1>Finding Recipes...</LoadingH1>
+                    <div style={style}>
+                        <RingLoader
+                            color={'#000000'}
+                            loading={loader}
+                            size={120}
+                        />
+                    </div>
                 </div>
-            </div>
-            :
-            <div>
-                <StyledH1>Showing '{parameter.paramtype}' Cuisines</StyledH1>
-                <Grid>
-                    {dishes.map(createDish)}
-                </Grid>
-                <Footer />
-            </div>
-        }
+                :
+                <div>
+                    <StyledH1>Showing '{parameter.paramtype}' Cuisines</StyledH1>
+                    <Grid>
+                        {dishes.map(createDish)}
+                    </Grid>
+                    <Footer />
+                </div>
+            }
         </div>
     );
 }
