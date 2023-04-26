@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from "react-router-dom";
+import styled from 'styled-components';
 
 function SignIn() {
     const [email, updateEmail] = React.useState();
@@ -41,21 +42,49 @@ function SignIn() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h3>Sign In</h3>
-            <div>
-                <p>Email</p>
-                <input type="text" onChange={(e) => {updateEmail(e.target.value)}}></input>
-                <p>Password</p>
-                <input type="password" onChange={(e) => {updatePassword(e.target.value)}}></input>
+        <Wrapper>
+            <div style={{width: "70%", border: "2px solid black", borderRadius: "24px"}}>
+            <form onSubmit={handleSubmit}>
+                <h1 style={{margin: "2rem 0rem"}}>Sign In</h1>
+                <div>
+                    <StyledInput placeholder="Email Address" type="text" onChange={(e) => {updateEmail(e.target.value)}}></StyledInput>
+                    <br/>
+                    <StyledInput placeholder="Password" type="password" onChange={(e) => {updatePassword(e.target.value)}}></StyledInput>
+                </div>
+                <StyledButton>Sign In</StyledButton>
+                    <p style={{marginTop: '3rem'}}>Don't have an account? <Link to={'/auth/signup'} state={{ previousPath: previousPath }}>Sign Up</Link></p>
+                
+                
+                
+            </form>
             </div>
-            <button>Sign In</button>
-            <p>Don't have an account?<Link to={'/auth/signup'} state={{ previousPath: previousPath }}>Sign Up</Link></p>
-            
-        </form>
+        </Wrapper>
     );
 }
 
+const Wrapper = styled.div`
+margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+`;
+
+const StyledInput = styled.input`
+    width: 60%;
+    padding: 15px;
+    border-bottom: 1px solid black;
+    margin-bottom: 25px;
+`;
+
+const StyledButton = styled.button`
+    width: 60%;
+    height: 3rem;
+    color: white;
+    background: black;
+    :hover{
+        color: lightgreen;
+      }
+`;
 
 
 
