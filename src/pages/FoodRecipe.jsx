@@ -18,7 +18,6 @@ function FoodRecipe() {
             const api = await fetch (`https://api.spoonacular.com/recipes/${parameter.paramname}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
             const data = await api.json();
             updateDetails(data)
-            console.log(data)
         };
         getFoodDetails();
     },[parameter.paramname]);

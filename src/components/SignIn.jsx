@@ -27,10 +27,8 @@ function SignIn() {
         })
         .then((res) => {return res.json()})
         .then((data) => {
-            console.log(data, "UserLogin");
             if (data.status === "ok"){
                 alert("Login Successful");
-                console.log(previousPath);
                 localStorage.setItem("token", data.data);
                 window.location.href = previousPath;
             }

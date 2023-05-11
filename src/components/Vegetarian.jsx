@@ -37,7 +37,6 @@ function Vegetarian() {
 
             localStorage.setItem("vegetarian", JSON.stringify(data.recipes));
             updateVeg(data.recipes);
-            console.log(data.recipes);
         }
     }
 

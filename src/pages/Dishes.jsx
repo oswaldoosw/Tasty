@@ -49,15 +49,12 @@ function Dishes() {
     const getDishes = async (dishName) => {
         const api = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${dishName}`)
         const data = await api.json();
-        console.log(data + "he")
         let arr = []
         for (let i = 0; i < data.number; i++) {
             const hello = await fetch (`https://api.spoonacular.com/recipes/${data.results[i].id}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
             const dat = await hello.json();
             arr.push(dat);
-            console.log(dat);
         } 
-        console.log(arr);
         updateDishes(arr);
     }
     return (

@@ -10,7 +10,7 @@ function Comment(props) {
     
     function handleDelete(e) {
         e.preventDefault();
-        fetch("http://localhost:5000/recipe/comment/delete", {
+        fetch("https://tasty-backend.vercel.app/recipe/comment/delete", {
         method:"DELETE",
         crossDomain:"true",
         headers:{
@@ -26,7 +26,6 @@ function Comment(props) {
         })
         .then((res) => res.json())
         .then((data) => {
-            console.log(data)
             props.updateContent(data.data.comments.reverse());
         })
         

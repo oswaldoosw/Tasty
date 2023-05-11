@@ -20,7 +20,7 @@ function Pages() {
         
     },[]);
     function getUser() {
-        fetch("http://localhost:5000/user", {
+        fetch("https://tasty-backend.vercel.app/user", {
             method:"POST",
             crossDomain:"true",
             headers:{
@@ -34,7 +34,6 @@ function Pages() {
         })
         .then((res) => res.json())
         .then((data) => {
-            console.log(data, "UserData");
             updateUserData(data.data)
         })
 

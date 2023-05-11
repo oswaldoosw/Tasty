@@ -47,17 +47,13 @@ const Rating = ((props) => {
     }, [props.param, token])
 
     useEffect(() => {
-        console.log(showRating, "dadaad");
         if (firstUpdate.current) {
-            console.log(showRating, "firstt");
             firstUpdate.current = false;
             return;
         }
         else if (showRating) {
-            console.log(showRating, "sec");
-            console.log(actualRating, "wow");
             const submitRating = async () => {
-                fetch("http://localhost:5000/recipe/rate", {
+                fetch("https://tasty-backend.vercel.app/recipe/rate", {
                 method:"PATCH",
                 crossDomain:"true",
                 headers:{

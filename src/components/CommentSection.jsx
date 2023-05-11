@@ -23,7 +23,7 @@ function CommentSection(props) {
         // }
         // else {
         const checkRecipeDetails = async () => {
-            fetch(`http://localhost:5000/recipe/?param=${props.param}`, {
+            fetch(`https://tasty-backend.vercel.app//recipe/?param=${props.param}`, {
                 method:"GET",
                 crossDomain:"true",
                 headers:{
@@ -57,7 +57,7 @@ function CommentSection(props) {
             alert("Comment must be longer than 5 characters");
         }
         else {
-            fetch("http://localhost:5000/recipe/comment", {
+            fetch("https://tasty-backend.vercel.app/recipe/comment", {
             method:"PATCH",
             crossDomain:"true",
             headers:{

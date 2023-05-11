@@ -11,7 +11,7 @@ function DishCard(props) {
     const [ratingCount, updateRatingCount] = React.useState(0);
     useEffect(() => {
         const fetchRating = async () => {
-            fetch(`http://localhost:5000/recipe/?param=${props.id}`, {
+            fetch(`https://tasty-backend.vercel.app/recipe/?param=${props.id}`, {
                 method:"GET",
                 crossDomain:"true",
                 headers:{

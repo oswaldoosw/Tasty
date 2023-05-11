@@ -42,7 +42,6 @@ function Searched() {
             const hello = await fetch (`https://api.spoonacular.com/recipes/${data.results[i].id}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
             const dat = await hello.json();
             arr.push(dat);
-            console.log(dat);
         } 
 
         updateSearch(arr);

@@ -32,7 +32,6 @@ function Popular() {
 
             localStorage.setItem("popular", JSON.stringify(data.recipes));
             updatePopular(data.recipes);
-            console.log(data.recipes);
         }
     }   
     return (

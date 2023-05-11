@@ -13,7 +13,7 @@ function SignUp() {
     function handleSubmit(e) {
         e.preventDefault();
         fetch("https://tasty-backend.vercel.app/register", {
-            
+
             method:"POST",
             crossDomain:"true",
             headers:{
@@ -29,7 +29,6 @@ function SignUp() {
         })
         .then((res) => res.json())
         .then((data) => {
-            console.log(data, "UserRegister");
             if (data.status === "User exists")
                 alert("Email Already in Use");
             else
