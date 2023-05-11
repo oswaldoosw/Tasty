@@ -23,7 +23,7 @@ function CommentSection(props) {
         // }
         // else {
         const checkRecipeDetails = async () => {
-            fetch(`https://tasty-backend.vercel.app//recipe/?param=${props.param}`, {
+            fetch(`https://tasty-backend.vercel.app/recipe/?param=${props.param}`, {
                 method:"GET",
                 crossDomain:"true",
                 headers:{
