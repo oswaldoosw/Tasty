@@ -12,7 +12,7 @@ function SignIn() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        fetch("https://tasty-backend.vercel.app/login", {
+        fetch("https://tasty-backend.vercel.app/login/", {
             mode: 'no-cors',
             method:"POST",
             crossDomain:"true",
