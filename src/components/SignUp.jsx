@@ -12,7 +12,8 @@ function SignUp() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        fetch("http://localhost:5000/register", {
+        fetch("https://tasty-backend.vercel.app/register", {
+            
             method:"POST",
             crossDomain:"true",
             headers:{
