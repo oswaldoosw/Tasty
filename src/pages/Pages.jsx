@@ -20,7 +20,7 @@ function Pages() {
         
     },[]);
     function getUser() {
-        fetch("https://tasty-backend.vercel.app/user", {
+        fetch("https://localhost:5000/user", {
             method:"POST",
             crossDomain:"true",
             headers:{
