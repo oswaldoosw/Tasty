@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 function Footer() {
-
     return (
         <Wrapper>
             <StyledParagraph style={{ fontWeight: "900", fontSize: "1.2rem", lineHeight: "1"}}>
