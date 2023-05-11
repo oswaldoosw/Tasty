@@ -19,7 +19,7 @@ const Rating = ((props) => {
 
     useEffect(() => {
         const checkRecipeDetails = async () => {
-            fetch(`https://tasty-delta.vercel.app/rating/?token=${token}&param=${props.param}`, {
+            fetch(`https://tasty-backend.vercel.app/rating/?token=${token}&param=${props.param}`, {
                 method:"GET",
                 crossDomain:"true",
                 headers:{
