@@ -12,7 +12,8 @@ function SignIn() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        fetch("https://tasty-backend-lyidyqlio-oswaldoosw.vercel.app/login", {
+        fetch("http://localhost:5000/login", {
+            mode: 'no-cors',
             method:"POST",
             crossDomain:"true",
             headers:{
