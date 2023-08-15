@@ -7,7 +7,7 @@ function Auth() {
     let parameter = useParams();
 
     return (
-        <div style={{margin: "0% 20%" }}>
+        <div style={{ margin: "0% 20%" }}>
             
         {parameter.authtype === "signin" ? 
             <SignIn />
