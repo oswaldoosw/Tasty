@@ -57,7 +57,7 @@ function Comment(props) {
             return Math.floor(interval) + " minutes ago";
         }
 
-        return Math.floor(seconds) + " seconds";
+        return Math.floor(seconds) < 0 ? 0 + " seconds ago" : Math.floor(seconds) + " seconds ago";
     }
 
     return (
