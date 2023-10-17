@@ -106,7 +106,7 @@ const Rating = ((props) => {
             })}
             
             <sub style={{ fontSize: "30px", }}>&ensp;{rating}{rating === null ? "" : "/5"}</sub>
-            <p style={{ fontSize: "12px", }}>This recipe is rated <b>{Math.round(actualRating * 10) / 10}/5 stars</b> by a total of {ratingCount} users</p>
+            <p style={{ fontSize: "12px", }}>This recipe has an average rating of <b>{Math.round(actualRating * 10) / 10}/5 stars,</b> rated by a total of {ratingCount} users</p>
         </div>
     )
 })
