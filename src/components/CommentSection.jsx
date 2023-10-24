@@ -17,11 +17,6 @@ function CommentSection(props) {
     
 
     useEffect(() => {
-        // const check = localStorage.getItem("comments");
-        // if (check) {
-        //     updateContent(JSON.parse(check));
-        // }
-        // else {
         const checkRecipeDetails = async () => {
             fetch(`https://tasty-backend.vercel.app/recipe/?param=${props.param}`, {
                 method:"GET",
@@ -40,8 +35,6 @@ function CommentSection(props) {
             })
         }
         checkRecipeDetails();
-        //}
-        
     }, [props.param])
 
     
