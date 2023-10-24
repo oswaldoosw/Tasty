@@ -49,7 +49,6 @@ function Pages() {
                 <Route path="/foodrecipe/:paramname" element={<FoodRecipe />} />
                 <Route path="/auth/:authtype" element={<Auth />} />
             </Routes>
-            
         </div>
     );
 }

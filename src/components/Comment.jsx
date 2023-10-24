@@ -61,9 +61,7 @@ function Comment(props) {
     }
 
     return (
-        <CommentCard className="p-3" onMouseOver={(e) => {updateShowDots("block")}} onMouseOut={() => {updateShowDots("none")}}>
-                    
-                
+        <CommentCard className="p-3" onMouseOver={(e) => {updateShowDots("block")}} onMouseOut={() => {updateShowDots("none")}}> 
             <div className="d-flex justify-content-between align-items-center">
                 <div className="user d-flex  align-items-center">
                     <ProfileIcon><img src={person} alt="" /></ProfileIcon>
@@ -80,8 +78,7 @@ function Comment(props) {
                         : 
                         <TbDotsVertical onClick={() => updateThreeDotsClick(true)} style={{display: showDots, cursor: "pointer"}} size={20}>
                         </TbDotsVertical>
-                }
-                          
+                }     
             </div>
             <small className="font-weight-bold">{props.comment.content}</small>
         </CommentCard>)

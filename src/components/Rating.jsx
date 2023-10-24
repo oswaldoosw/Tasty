@@ -39,8 +39,6 @@ const Rating = ((props) => {
                     updateRating(data.rating.ratingList[0].score);
                     updateFirstTimeRating(false);
                 }
-                
-               
             })
         }
         checkRecipeDetails();
@@ -104,7 +102,6 @@ const Rating = ((props) => {
                     </label>
                 );
             })}
-            
             <sub style={{ fontSize: "30px", }}>&ensp;{rating}{rating === null ? "" : "/5"}</sub>
             <p style={{ fontSize: "12px", }}>This recipe has an average rating of <b>{Math.round(actualRating * 10) / 10}/5 stars,</b> rated by {ratingCount} users</p>
         </div>

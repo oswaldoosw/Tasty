@@ -14,8 +14,6 @@ function CommentSection(props) {
     
     const postsPerPage = 5;
 
-    
-
     useEffect(() => {
         const checkRecipeDetails = async () => {
             fetch(`https://tasty-backend.vercel.app/recipe/?param=${props.param}`, {

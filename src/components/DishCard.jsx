@@ -61,10 +61,6 @@ function DishCard(props) {
                 </div>
             </div>
             <div style={{width: "20%", display: "inline-block", float: "right", paddingTop:"10px"}}><StyledLink to={'/foodrecipe/' + props.id}><p>GO</p></StyledLink></div>
-            {/* {content?.map((comment)=> {return (
-                <div>{comment._id}</div>
-                )
-            })} */}
         </div>
     )
 };

@@ -51,9 +51,6 @@ function SignIn() {
                 </div>
                 <StyledButton>Sign In</StyledButton>
                     <p style={{marginTop: '3rem'}}>Don't have an account? <Link to={'/auth/signup'} state={{ previousPath: previousPath }}>Sign Up</Link></p>
-                
-                
-                
             </form>
             </div>
         </Wrapper>
