@@ -63,7 +63,7 @@ The frontend is separated into two main folders, which are components and pages.
 ### 3. Creating the Main Page
 The main page consists of 4 components:
 - `SearchBar`component which takes in the user's query and triggers the onSubmit function which redirects the user to the search results page
-- `Vegetarian` component which displays 8 random vegetarian recipes. This component uses Splide, a library that allows the user to slide through the recipes. Unfortunately, Splide doesn't seem to support responsive web design, which causes this component to look distorted on mobile phones. The recipes are cached inside LocalStorage to prevent API call limit and to preserve the same recipes upon further page reloads.
+- `Vegetarian` component which displays 8 random vegetarian recipes. This component uses Splide, a library that allows the user to slide through the recipes. Unfortunately, Splide doesn't seem to support responsive web design, which causes this component to look distorted on mobile phones. The recipes are cached inside LocalStorage to prevent API call limit and to preserve the same recipes upon further page reloads
 - `Popular` component which displays 8 random recipes. This component uses css grid view which allows it to be responsive. Just like the `Vegetarian` component, the recipes are cached inside LocalStorage
 - `Footer` component which credits Spoonacular API and other libraries used in this app
 
