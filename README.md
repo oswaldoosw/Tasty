@@ -19,7 +19,7 @@ Additional Libraries:
 
 ## Demo Video
 
-https://github.com/oswaldoosw/Tasty/assets/103481357/c93185ce-b832-457b-88aa-2e7d663c9d8e
+https://github.com/oswaldoosw/Tasty/assets/103481357/cfacd95b-80f9-4bef-ab94-559189a83edd
 
 ## User Stories
 
